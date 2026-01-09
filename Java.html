@@ -173,7 +173,10 @@
 
         // Function to toggle visibility of the hint
         function showHint(programNumber) {
+      
+
             const hintDiv = document.getElementById(`hint${programNumber}`);
+            console.log(`Hint for program ${programNumber} is being toggled`);
             hintDiv.style.display = hintDiv.style.display === 'none' ? 'block' : 'none';
         }
     </script>
