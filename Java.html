@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Programs</title>
+    <style>
+        /* General styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #3a5a40;
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .program-container {
+            width: 100%;
+            max-width: 800px;
+            background-color: #ffffff;
+            margin-bottom: 20px;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .program-container h2 {
+            font-size: 24px;
+            color: #007BFF;
+        }
+
+        .program-container p {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+        .button {
+            background-color: #007BFF;
+            color: white;
+            font-size: 18px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #0056b3;
+        }
+
+        .answer {
+            display: none;
+            margin-top: 20px;
+            background-color: #e7f5e1;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #d0e6c3;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 16px;
+            color: #333;
+        }
+
+        /* Custom styles for code block */
+        pre {
+            margin: 0;
+            padding: 20px;
+            background-color: #2d2d2d;
+            color: #f8f8f2;
+            border-radius: 8px;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            line-height: 2; /* Automatic line spacing */
+        }
+
+        /* Optional: Highlight specific keywords */
+        .token.keyword {
+            color: #ff79c6; /* Pink color for keywords like 'String', 'int' */
+        }
+
+        .token.function {
+            color: #50fa7b; /* Green for function names like 'println' */
+        }
+    </style>
+</head>
+<body>
+    <h1>Java Programs</h1>
+
+    <!-- Java Program 1: Reverse a String -->
+    <div class="program-container">
+        <h2>Program 1: Reverse a String</h2>
+        <p><strong>String:</strong> "Java is Fun"</p>
+        <p><strong>Expected Output:</strong> nuF si avaJ</p>
+        <button class="button" onclick="showAnswer(1)">Click to Show Answer</button>
+
+        <div class="answer" id="answer1">
+            <p><strong>Answer:</strong></p>
+            <pre><code class="language-java">
+                String str = "Java is Fun";
+                String result = "";
+                for (int i = str.length() - 1; i >= 0; i--) {
+                    result += str.charAt(i);
+                }
+                System.out.println("The value is: " + result);
+            </code></pre>
+        </div>
+    </div>
+
+    <!-- Java Program 2: Reverse only alphabets in a given string -->
+    <div class="program-container">
+        <h2>Program 2: Reverse only alphabets in a given string</h2>
+        <p><strong>String:</strong> 1ab23</p>
+        <p><strong>Expected Output:</strong> 1ba23</p>
+        <button class="button" onclick="showAnswer(2)">Click to Show Answer</button>
+
+        <div class="answer" id="answer2">
+            <p><strong>Answer:</strong></p>
+            <pre><code class="language-java">
+                String str = "1ab23";
+                int left = 0;  
+                int right = str.length() - 1; 
+
+                char[] strCharArr = str.toCharArray();
+
+                while(left < right) {
+                    if (!Character.isLetter(strCharArr[left])) {
+                        left++;
+                    } else if (!Character.isLetter(strCharArr[right])) {
+                        right--;
+                    } else {
+                        char tempvar = strCharArr[left];
+                        strCharArr[left] = strCharArr[right];
+                        strCharArr[right] = tempvar;
+                        left++;
+                        right--;
+                    }
+                }
+
+                System.out.println("The reverse value is " + new String(strCharArr));
+            </code></pre>
+        </div>
+    </div>
+
+    <script>
+        function showAnswer(programNumber) {
+            const answerDiv = document.getElementById(`answer${programNumber}`);
+            answerDiv.style.display = answerDiv.style.display === 'none' ? 'block' : 'none';
+        }
+    </script>
+</body>
+</html>
