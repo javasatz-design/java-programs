@@ -61,7 +61,7 @@
             background-color: #0056b3;
         }
 
-        .answer {
+        .answer, .hint {
             display: none;
             margin-top: 20px;
             background-color: #e7f5e1;
@@ -105,6 +105,7 @@
         <p><strong>String:</strong> "Java is Fun"</p>
         <p><strong>Expected Output:</strong> nuF si avaJ</p>
         <button class="button" onclick="showAnswer(1)">Click to Show Answer</button>
+        <button class="button" onclick="showHint(1)">Click for Hint</button>
 
         <div class="answer" id="answer1">
             <p><strong>Answer:</strong></p>
@@ -117,6 +118,10 @@
                 System.out.println("The value is: " + result);
             </code></pre>
         </div>
+
+        <div class="hint" id="hint1">
+            <p><strong>Hint:</strong> Try using a loop to iterate over the string in reverse order and append each character to a new string.</p>
+        </div>
     </div>
 
     <!-- Java Program 2: Reverse only alphabets in a given string -->
@@ -125,6 +130,7 @@
         <p><strong>String:</strong> 1ab23</p>
         <p><strong>Expected Output:</strong> 1ba23</p>
         <button class="button" onclick="showAnswer(2)">Click to Show Answer</button>
+        <button class="button" onclick="showHint(2)">Click for Hint</button>
 
         <div class="answer" id="answer2">
             <p><strong>Answer:</strong></p>
@@ -152,12 +158,23 @@
                 System.out.println("The reverse value is " + new String(strCharArr));
             </code></pre>
         </div>
+
+        <div class="hint" id="hint2">
+            <p><strong>Hint:</strong> Consider using two pointers, one at the beginning and one at the end, to swap only the letters.</p>
+        </div>
     </div>
 
     <script>
+        // Function to toggle visibility of the answer
         function showAnswer(programNumber) {
             const answerDiv = document.getElementById(`answer${programNumber}`);
             answerDiv.style.display = answerDiv.style.display === 'none' ? 'block' : 'none';
+        }
+
+        // Function to toggle visibility of the hint
+        function showHint(programNumber) {
+            const hintDiv = document.getElementById(`hint${programNumber}`);
+            hintDiv.style.display = hintDiv.style.display === 'none' ? 'block' : 'none';
         }
     </script>
 </body>
