@@ -6,8 +6,9 @@
     <title>Java Programs</title>
 
     <style>
+        /* Global Styles */
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
             background-color: #f4f4f9;
             color: #333;
             margin: 0;
@@ -15,28 +16,39 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            background-image: url('https://www.transparenttextures.com/patterns/black-linen.png');
+            background-color: #f9f9f9;
         }
 
         h1 {
             color: #3a5a40;
-            font-size: 32px;
-            margin-bottom: 40px; /* Increased space below title */
+            font-size: 36px;
+            margin-bottom: 50px; /* Space below title */
+            font-weight: 600;
         }
 
+        /* Program container styling */
         .program-container {
             width: 100%;
             max-width: 800px;
             background-color: #ffffff;
-            margin-bottom: 50px; /* Increased space between program blocks */
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 60px; /* Increased space between program blocks */
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s ease-in-out;
+        }
+
+        .program-container:hover {
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2); /* Hover effect for programs */
         }
 
         .program-container h2 {
-            font-size: 24px;
+            font-size: 28px;
             color: #007BFF;
-            margin-bottom: 20px; /* Increased space between title and content */
+            margin-bottom: 20px;
+            font-weight: 700;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
         }
 
         .program-container p {
@@ -47,16 +59,19 @@
         .button {
             background-color: #007BFF;
             color: white;
-            font-size: 16px;
-            padding: 8px 15px;
+            font-size: 18px;
+            padding: 12px 20px;
             border: none;
-            border-radius: 5px;
+            border-radius: 8px;
             cursor: pointer;
             margin-right: 10px;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
         .button:hover {
             background-color: #0056b3;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
         }
 
         .answer, .hint {
@@ -81,17 +96,25 @@
             line-height: 1.6;
         }
 
+        /* Discussion Header Styling */
         h3 {
             color: #007BFF;
-            margin-top: 30px; /* Increased space between program content and discussion header */
+            margin-top: 30px;
             font-size: 1.5rem;
             font-weight: bold;
-            border-bottom: 2px solid #007BFF; /* Underline for distinction */
+            border-bottom: 2px solid #007BFF;
             padding-bottom: 10px;
+            display: inline-block;
         }
 
         .giscus-container {
-            margin-top: 20px; /* Space between discussion and Giscus comments */
+            margin-top: 20px;
+        }
+
+        /* Styling for the entire comment block */
+        .giscus-container iframe {
+            border: 1px solid #d0e6c3;
+            border-radius: 8px;
         }
     </style>
 </head>
