@@ -130,6 +130,21 @@
             border: 1px solid #d0e6c3;
             border-radius: 8px;
         }
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 28px; /* Reduce font size for smaller screens */
+            }
+            .program-container {
+                width: 100%; /* Make program container full width */
+                padding: 15px; /* Adjust padding for smaller screens */
+            }
+            .button {
+                width: 100%; /* Make buttons full width */
+                margin-bottom: 10px; /* Space between buttons */
+            }
+        }
     </style>
 </head>
 
@@ -248,7 +263,7 @@ System.out.println(new String(arr));
         el.style.display = el.style.display === "block" ? "none" : "block";
     }
 
-      function loadDiscussion(programNum) {
+    function loadDiscussion(programNum) {
         const discussion = document.getElementById(`discussion${programNum}`);
         console.log(`Toggling discussion for Program ${programNum}`);  // Debugging log
         if (discussion) {
