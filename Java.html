@@ -20,14 +20,14 @@
         h1 {
             color: #3a5a40;
             font-size: 32px;
-            margin-bottom: 20px;
+            margin-bottom: 40px; /* Increased space below title */
         }
 
         .program-container {
             width: 100%;
             max-width: 800px;
             background-color: #ffffff;
-            margin-bottom: 30px;
+            margin-bottom: 50px; /* Increased space between program blocks */
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -36,6 +36,7 @@
         .program-container h2 {
             font-size: 24px;
             color: #007BFF;
+            margin-bottom: 20px; /* Increased space between title and content */
         }
 
         .program-container p {
@@ -79,6 +80,19 @@
             white-space: pre-wrap;
             line-height: 1.6;
         }
+
+        h3 {
+            color: #007BFF;
+            margin-top: 30px; /* Increased space between program content and discussion header */
+            font-size: 1.5rem;
+            font-weight: bold;
+            border-bottom: 2px solid #007BFF; /* Underline for distinction */
+            padding-bottom: 10px;
+        }
+
+        .giscus-container {
+            margin-top: 20px; /* Space between discussion and Giscus comments */
+        }
     </style>
 </head>
 
@@ -111,21 +125,23 @@ System.out.println(result);
     </div>
 
     <!-- 💬 COMMENTS FOR PROGRAM 1 -->
-    <h3>💬 Discussion – Program 1</h3>
-    <script src="https://giscus.app/client.js"
-        data-repo="javasatz-design/java-programs"
-        data-repo-id="R_kgDOQ2YCvA"
-        data-category="Ideas"
-        data-category-id="DIC_kwDOQ2YCvM4C1K4V"
-        data-mapping="specific"
-        data-term="program-1-reverse-string"
-        data-reactions-enabled="1"
-        data-input-position="bottom"
-        data-theme="preferred_color_scheme"
-        data-lang="en"
-        crossorigin="anonymous"
-        async>
-    </script>
+    <div class="giscus-container">
+        <h3>💬 Discussion – Program 1</h3>
+        <script src="https://giscus.app/client.js"
+            data-repo="javasatz-design/java-programs"
+            data-repo-id="R_kgDOQ2YCvA"
+            data-category="Ideas"
+            data-category-id="DIC_kwDOQ2YCvM4C1K4V"
+            data-mapping="specific"
+            data-term="program-1-reverse-string"
+            data-reactions-enabled="1"
+            data-input-position="bottom"
+            data-theme="preferred_color_scheme"
+            data-lang="en"
+            crossorigin="anonymous"
+            async>
+        </script>
+    </div>
 </div>
 
 <!-- ================= PROGRAM 2 ================= -->
@@ -163,21 +179,23 @@ System.out.println(new String(arr));
     </div>
 
     <!-- 💬 COMMENTS FOR PROGRAM 2 -->
-    <h3>💬 Discussion – Program 2</h3>
-    <script src="https://giscus.app/client.js"
-        data-repo="javasatz-design/java-programs"
-        data-repo-id="R_kgDOQ2YCvA"
-        data-category="Ideas"
-        data-category-id="DIC_kwDOQ2YCvM4C1K4V"
-        data-mapping="specific"
-        data-term="program-2-reverse-alphabets"
-        data-reactions-enabled="1"
-        data-input-position="bottom"
-        data-theme="preferred_color_scheme"
-        data-lang="en"
-        crossorigin="anonymous"
-        async>
-    </script>
+    <div class="giscus-container">
+        <h3>💬 Discussion – Program 2</h3>
+        <script src="https://giscus.app/client.js"
+            data-repo="javasatz-design/java-programs"
+            data-repo-id="R_kgDOQ2YCvA"
+            data-category="Ideas"
+            data-category-id="DIC_kwDOQ2YCvM4C1K4V"
+            data-mapping="specific"
+            data-term="program-2-reverse-alphabets"
+            data-reactions-enabled="1"
+            data-input-position="bottom"
+            data-theme="preferred_color_scheme"
+            data-lang="en"
+            crossorigin="anonymous"
+            async>
+        </script>
+    </div>
 </div>
 
 <script>
@@ -193,4 +211,4 @@ System.out.println(new String(arr));
 </script>
 
 </body>
-</html> 
+</html>
