@@ -5,6 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Java Programs</title>
 
+    <!-- Include Prism.js for syntax highlighting -->
+    <link href="https://cdn.jsdelivr.net/npm/prismjs@1.26.0/themes/prism-okaidia.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.26.0/prism.js"></script>
+
+    <!-- Include AOS (Animate on Scroll) -->
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
+    <!-- Include Tippy.js for tooltips -->
+    <link href="https://unpkg.com/tippy.js@6.3.1/dist/tippy.css" rel="stylesheet">
+    <script src="https://unpkg.com/tippy.js@6.3.1/dist/tippy.umd.min.js"></script>
+
+    <!-- Include Chart.js for charts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
     <style>
         /* Global Styles */
         body {
@@ -23,16 +38,15 @@
         h1 {
             color: #3a5a40;
             font-size: 36px;
-            margin-bottom: 50px; /* Space below title */
+            margin-bottom: 50px;
             font-weight: 600;
         }
 
-        /* Program container styling */
         .program-container {
             width: 100%;
             max-width: 800px;
             background-color: #ffffff;
-            margin-bottom: 60px; /* Increased space between program blocks */
+            margin-bottom: 60px;
             padding: 30px;
             border-radius: 12px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -50,7 +64,7 @@
         }
 
         .program-container:hover {
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2); /* Hover effect for programs */
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
         }
 
         .program-container h2 {
@@ -66,7 +80,6 @@
             margin: 10px 0;
         }
 
-        /* Button styling */
         .button {
             background-color: #007BFF;
             color: white;
@@ -110,7 +123,6 @@
             line-height: 1.6;
         }
 
-        /* Discussion Header Styling */
         h3 {
             color: #007BFF;
             margin-top: 30px;
@@ -125,24 +137,42 @@
             margin-top: 20px;
         }
 
-        /* Styling for the entire comment block */
         .giscus-container iframe {
             border: 1px solid #d0e6c3;
             border-radius: 8px;
         }
 
-        /* Mobile responsiveness */
+        #scrollToTopBtn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            padding: 15px;
+            font-size: 24px;
+            display: none;
+            cursor: pointer;
+        }
+
+        #scrollToTopBtn:hover {
+            background-color: #0056b3;
+        }
+
         @media (max-width: 768px) {
             h1 {
-                font-size: 28px; /* Reduce font size for smaller screens */
+                font-size: 28px;
             }
+
             .program-container {
-                width: 100%; /* Make program container full width */
-                padding: 15px; /* Adjust padding for smaller screens */
+                width: 100%;
+                padding: 15px;
             }
+
             .button {
-                width: 100%; /* Make buttons full width */
-                margin-bottom: 10px; /* Space between buttons */
+                width: 100%;
+                margin-bottom: 10px;
             }
         }
     </style>
@@ -153,17 +183,17 @@
 <h1>Java Programs</h1>
 
 <!-- ================= PROGRAM 1 ================= -->
-<div class="program-container">
+<div class="program-container" data-aos="fade-up">
     <h2>Program 1: Reverse a String</h2>
     <p><strong>String:</strong> "Java is Fun"</p>
     <p><strong>Expected Output:</strong> nuF si avaJ</p>
 
-    <button class="button" onclick="showAnswer(1)">Show Answer</button>
-    <button class="button" onclick="showHint(1)">Show Hint</button>
-    <button class="button" onclick="loadDiscussion(1)">Show Discussion</button> <!-- Button for Program 1 -->
+    <button class="button" onclick="showAnswer(1)" data-tippy-content="Click to reveal the answer">Show Answer</button>
+    <button class="button" onclick="showHint(1)" data-tippy-content="Click to reveal a hint">Show Hint</button>
+    <button class="button" onclick="loadDiscussion(1)" data-tippy-content="Click to view the discussion">Show Discussion</button>
 
     <div class="answer" id="answer1">
-        <pre><code>
+        <pre><code class="language-java">
 String str = "Java is Fun";
 String result = "";
 for (int i = str.length() - 1; i >= 0; i--) {
@@ -178,7 +208,7 @@ System.out.println(result);
     </div>
 
     <!-- 💬 COMMENTS FOR PROGRAM 1 -->
-    <div class="giscus-container" id="discussion1" style="display: none;"> <!-- Initially hidden -->
+    <div class="giscus-container" id="discussion1" style="display: none;">
         <h3>💬 Discussion – Program 1</h3>
         <script src="https://giscus.app/client.js"
             data-repo="javasatz-design/java-programs"
@@ -198,17 +228,17 @@ System.out.println(result);
 </div>
 
 <!-- ================= PROGRAM 2 ================= -->
-<div class="program-container">
+<div class="program-container" data-aos="fade-up">
     <h2>Program 2: Reverse only alphabets</h2>
     <p><strong>String:</strong> 1ab23</p>
     <p><strong>Expected Output:</strong> 1ba23</p>
 
-    <button class="button" onclick="showAnswer(2)">Show Answer</button>
-    <button class="button" onclick="showHint(2)">Show Hint</button>
-    <button class="button" onclick="loadDiscussion(2)">Show Discussion</button> <!-- Button for Program 2 -->
+    <button class="button" onclick="showAnswer(2)" data-tippy-content="Click to reveal the answer">Show Answer</button>
+    <button class="button" onclick="showHint(2)" data-tippy-content="Click to reveal a hint">Show Hint</button>
+    <button class="button" onclick="loadDiscussion(2)" data-tippy-content="Click to view the discussion">Show Discussion</button>
 
     <div class="answer" id="answer2">
-        <pre><code>
+        <pre><code class="language-java">
 String str = "1ab23";
 char[] arr = str.toCharArray();
 int left = 0, right = arr.length - 1;
@@ -233,7 +263,7 @@ System.out.println(new String(arr));
     </div>
 
     <!-- 💬 COMMENTS FOR PROGRAM 2 -->
-    <div class="giscus-container" id="discussion2" style="display: none;"> <!-- Initially hidden -->
+    <div class="giscus-container" id="discussion2" style="display: none;">
         <h3>💬 Discussion – Program 2</h3>
         <script src="https://giscus.app/client.js"
             data-repo="javasatz-design/java-programs"
@@ -252,26 +282,73 @@ System.out.println(new String(arr));
     </div>
 </div>
 
+<!-- Scroll to Top Button -->
+<button id="scrollToTopBtn" onclick="scrollToTop()">↑</button>
+
 <script>
+    // Initialize AOS
+    AOS.init();
+
+    // Tooltips for buttons
+    tippy('.button');
+
+    // Show or hide answer
     function showAnswer(num) {
         const el = document.getElementById(`answer${num}`);
         el.style.display = el.style.display === "block" ? "none" : "block";
     }
 
+    // Show or hide hint
     function showHint(num) {
         const el = document.getElementById(`hint${num}`);
         el.style.display = el.style.display === "block" ? "none" : "block";
     }
 
+    // Toggle discussion visibility
     function loadDiscussion(programNum) {
         const discussion = document.getElementById(`discussion${programNum}`);
-        console.log(`Toggling discussion for Program ${programNum}`);  // Debugging log
-        if (discussion) {
-            discussion.style.display = discussion.style.display === "block" ? "none" : "block";
-        } else {
-            console.log("Discussion element not found for Program " + programNum);  // Debugging missing element
-        }
+        discussion.style.display = discussion.style.display === "block" ? "none" : "block";
     }
+
+    // Scroll to top button functionality
+    window.onscroll = function() {
+        const btn = document.getElementById("scrollToTopBtn");
+        if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+            btn.style.display = "block";
+        } else {
+            btn.style.display = "none";
+        }
+    };
+
+    function scrollToTop() {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    }
+
+    // Sample Chart.js - Optional (You can add your own data)
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Program 1', 'Program 2'],
+            datasets: [{
+                label: 'Execution Time (ms)',
+                data: [100, 200], // Use actual data here
+                backgroundColor: ['rgba(75, 192, 192, 0.2)', 'rgba(153, 102, 255, 0.2)'],
+                borderColor: ['rgba(75, 192, 192, 1)', 'rgba(153, 102, 255, 1)'],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
 </script>
 
 </body>
