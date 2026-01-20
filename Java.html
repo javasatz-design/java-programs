@@ -248,10 +248,14 @@ System.out.println(new String(arr));
         el.style.display = el.style.display === "block" ? "none" : "block";
     }
 
-    function loadDiscussion(programNum) {
+      function loadDiscussion(programNum) {
         const discussion = document.getElementById(`discussion${programNum}`);
         console.log(`Toggling discussion for Program ${programNum}`);  // Debugging log
-        discussion.style.display = discussion.style.display === "block" ? "none" : "block";
+        if (discussion) {
+            discussion.style.display = discussion.style.display === "block" ? "none" : "block";
+        } else {
+            console.log("Discussion element not found for Program " + programNum);  // Debugging missing element
+        }
     }
 </script>
 
