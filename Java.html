@@ -251,6 +251,7 @@ System.out.println(new String(arr));
     function loadDiscussion(programNum) {
         const discussion = document.getElementById(`discussion${programNum}`);
         // Toggle display when clicked
+        console.log(`Toggling discussion for Program ${programNum}`);
         discussion.style.display = discussion.style.display === "block" ? "none" : "block";
     }
 </script>
