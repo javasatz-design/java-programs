@@ -4,20 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Java Programs</title>
+
     <style>
-        /* General styling */
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f4f9;
             color: #333;
             margin: 0;
-            padding: 0;
+            padding: 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            height: 100vh;
-            padding: 20px;
         }
 
         h1 {
@@ -30,7 +27,7 @@
             width: 100%;
             max-width: 800px;
             background-color: #ffffff;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -49,12 +46,12 @@
         .button {
             background-color: #007BFF;
             color: white;
-            font-size: 18px;
-            padding: 10px 20px;
+            font-size: 16px;
+            padding: 8px 15px;
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            transition: background-color 0.3s ease;
+            margin-right: 10px;
         }
 
         .button:hover {
@@ -70,10 +67,8 @@
             border: 1px solid #d0e6c3;
             font-family: 'Courier New', Courier, monospace;
             font-size: 16px;
-            color: #333;
         }
 
-        /* Custom styles for code block */
         pre {
             margin: 0;
             padding: 20px;
@@ -82,103 +77,107 @@
             border-radius: 8px;
             overflow-x: auto;
             white-space: pre-wrap;
-            word-wrap: break-word;
-            line-height: 2; /* Automatic line spacing */
-        }
-
-        /* Optional: Highlight specific keywords */
-        .token.keyword {
-            color: #ff79c6; /* Pink color for keywords like 'String', 'int' */
-        }
-
-        .token.function {
-            color: #50fa7b; /* Green for function names like 'println' */
+            line-height: 1.6;
         }
     </style>
 </head>
+
 <body>
-    <h1>Java Programs</h1>
 
-    <!-- Java Program 1: Reverse a String -->
-    <div class="program-container">
-        <h2>Program 1: Reverse a String</h2>
-        <p><strong>String:</strong> "Java is Fun"</p>
-        <p><strong>Expected Output:</strong> nuF si avaJ</p>
-        <button class="button" onclick="showAnswer(1)">Click to Show Answer</button>
-        <button class="button" onclick="showHint(1)">Click for Hint</button>
+<h1>Java Programs</h1>
 
-        <div class="answer" id="answer1">
-            <p><strong>Answer:</strong></p>
-            <pre><code class="language-java">
-                String str = "Java is Fun";
-                String result = "";
-                for (int i = str.length() - 1; i >= 0; i--) {
-                    result += str.charAt(i);
-                }
-                System.out.println("The value is: " + result);
-            </code></pre>
-        </div>
+<!-- Program 1 -->
+<div class="program-container">
+    <h2>Program 1: Reverse a String</h2>
+    <p><strong>String:</strong> "Java is Fun"</p>
+    <p><strong>Expected Output:</strong> nuF si avaJ</p>
 
-        <div class="hint" id="hint1">
-            <p><strong>Hint:</strong> Try using a loop to iterate over the string in reverse order and append each character to a new string.</p>
-        </div>
+    <button class="button" onclick="showAnswer(1)">Show Answer</button>
+    <button class="button" onclick="showHint(1)">Show Hint</button>
+
+    <div class="answer" id="answer1">
+        <pre><code>
+String str = "Java is Fun";
+String result = "";
+for (int i = str.length() - 1; i >= 0; i--) {
+    result += str.charAt(i);
+}
+System.out.println(result);
+        </code></pre>
     </div>
 
-    <!-- Java Program 2: Reverse only alphabets in a given string -->
-    <div class="program-container">
-        <h2>Program 2: Reverse only alphabets in a given string</h2>
-        <p><strong>String:</strong> 1ab23</p>
-        <p><strong>Expected Output:</strong> 1ba23</p>
-        <button class="button" onclick="showAnswer(2)">Click to Show Answer</button>
-        <button class="button" onclick="showHint(2)">Click for Hint</button>
+    <div class="hint" id="hint1">
+        Use a loop to read characters from the end of the string.
+    </div>
+</div>
 
-        <div class="answer" id="answer2">
-            <p><strong>Answer:</strong></p>
-            <pre><code class="language-java">
-                String str = "1ab23";
-                int left = 0;  
-                int right = str.length() - 1; 
+<!-- Program 2 -->
+<div class="program-container">
+    <h2>Program 2: Reverse only alphabets</h2>
+    <p><strong>String:</strong> 1ab23</p>
+    <p><strong>Expected Output:</strong> 1ba23</p>
 
-                char[] strCharArr = str.toCharArray();
+    <button class="button" onclick="showAnswer(2)">Show Answer</button>
+    <button class="button" onclick="showHint(2)">Show Hint</button>
 
-                while(left < right) {
-                    if (!Character.isLetter(strCharArr[left])) {
-                        left++;
-                    } else if (!Character.isLetter(strCharArr[right])) {
-                        right--;
-                    } else {
-                        char tempvar = strCharArr[left];
-                        strCharArr[left] = strCharArr[right];
-                        strCharArr[right] = tempvar;
-                        left++;
-                        right--;
-                    }
-                }
+    <div class="answer" id="answer2">
+        <pre><code>
+String str = "1ab23";
+char[] arr = str.toCharArray();
+int left = 0, right = arr.length - 1;
 
-                System.out.println("The reverse value is " + new String(strCharArr));
-            </code></pre>
-        </div>
-
-        <div class="hint" id="hint2">
-            <p><strong>Hint:</strong> Consider using two pointers, one at the beginning and one at the end, to swap only the letters.</p>
-        </div>
+while (left < right) {
+    if (!Character.isLetter(arr[left])) left++;
+    else if (!Character.isLetter(arr[right])) right--;
+    else {
+        char temp = arr[left];
+        arr[left] = arr[right];
+        arr[right] = temp;
+        left++;
+        right--;
+    }
+}
+System.out.println(new String(arr));
+        </code></pre>
     </div>
 
-    <script>
-        // Function to toggle visibility of the answer
-        function showAnswer(programNumber) {
-            const answerDiv = document.getElementById(`answer${programNumber}`);
-            answerDiv.style.display = answerDiv.style.display === 'none' ? 'block' : 'none';
-        }
+    <div class="hint" id="hint2">
+        Use two pointers and swap only letters.
+    </div>
+</div>
 
-        // Function to toggle visibility of the hint
-        function showHint(programNumber) {
-      
+<!-- ✅ GISCUS COMMENTS -->
+<div class="program-container">
+    <h2>💬 Comments & Discussion</h2>
 
-            const hintDiv = document.getElementById(`hint${programNumber}`);
-            console.log(`Hint for program ${programNumber} is being toggled`);
-            hintDiv.style.display = hintDiv.style.display === 'none' ? 'block' : 'none';
-        }
+    <script src="https://giscus.app/client.js"
+        data-repo="javasatz-design/java-programs"
+        data-repo-id="R_kgDOQ2YCvA"
+        data-category="General"
+        data-category-id="YOUR_CATEGORY_ID"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
     </script>
+</div>
+
+<script>
+    function showAnswer(num) {
+        const el = document.getElementById(`answer${num}`);
+        el.style.display = el.style.display === "block" ? "none" : "block";
+    }
+
+    function showHint(num) {
+        const el = document.getElementById(`hint${num}`);
+        el.style.display = el.style.display === "block" ? "none" : "block";
+    }
+</script>
+
 </body>
 </html>
