@@ -37,6 +37,16 @@
             border-radius: 12px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             transition: box-shadow 0.3s ease-in-out;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 0.8s forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .program-container:hover {
@@ -56,6 +66,7 @@
             margin: 10px 0;
         }
 
+        /* Button styling */
         .button {
             background-color: #007BFF;
             color: white;
@@ -65,13 +76,14 @@
             border-radius: 8px;
             cursor: pointer;
             margin-right: 10px;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s ease, transform 0.2s ease;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
         .button:hover {
             background-color: #0056b3;
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+            transform: scale(1.05);
         }
 
         .answer, .hint {
@@ -83,6 +95,8 @@
             border: 1px solid #d0e6c3;
             font-family: 'Courier New', Courier, monospace;
             font-size: 16px;
+            transition: max-height 0.3s ease-out;
+            overflow: hidden;
         }
 
         pre {
@@ -131,6 +145,7 @@
 
     <button class="button" onclick="showAnswer(1)">Show Answer</button>
     <button class="button" onclick="showHint(1)">Show Hint</button>
+    <button class="button" onclick="loadDiscussion(1)">Show Discussion</button> <!-- New Button -->
 
     <div class="answer" id="answer1">
         <pre><code>
@@ -148,7 +163,7 @@ System.out.println(result);
     </div>
 
     <!-- 💬 COMMENTS FOR PROGRAM 1 -->
-    <div class="giscus-container">
+    <div class="giscus-container" id="discussion1" style="display: none;"> <!-- Initially hidden -->
         <h3>💬 Discussion – Program 1</h3>
         <script src="https://giscus.app/client.js"
             data-repo="javasatz-design/java-programs"
@@ -175,6 +190,7 @@ System.out.println(result);
 
     <button class="button" onclick="showAnswer(2)">Show Answer</button>
     <button class="button" onclick="showHint(2)">Show Hint</button>
+    <button class="button" onclick="loadDiscussion(2)">Show Discussion</button> <!-- New Button -->
 
     <div class="answer" id="answer2">
         <pre><code>
@@ -202,7 +218,7 @@ System.out.println(new String(arr));
     </div>
 
     <!-- 💬 COMMENTS FOR PROGRAM 2 -->
-    <div class="giscus-container">
+    <div class="giscus-container" id="discussion2" style="display: none;"> <!-- Initially hidden -->
         <h3>💬 Discussion – Program 2</h3>
         <script src="https://giscus.app/client.js"
             data-repo="javasatz-design/java-programs"
@@ -230,6 +246,12 @@ System.out.println(new String(arr));
     function showHint(num) {
         const el = document.getElementById(`hint${num}`);
         el.style.display = el.style.display === "block" ? "none" : "block";
+    }
+
+    function loadDiscussion(programNum) {
+        const discussion = document.getElementById(`discussion${programNum}`);
+        // Toggle display when clicked
+        discussion.style.display = discussion.style.display === "block" ? "none" : "block";
     }
 </script>
 
